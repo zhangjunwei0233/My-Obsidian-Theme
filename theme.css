@@ -1916,6 +1916,11 @@ body .markdown-rendered mark {
 }
 
 /* table */
+table,
+.table-wrapper {
+	margin-inline: auto;
+}
+
 .el-table table th,
 .el-table table td,
 .table-wrapper table th,
