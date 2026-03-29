@@ -111,6 +111,20 @@ settings:
     title: Hide Striped Background
     title.zh: 关闭斑马纹背景
     type: class-toggle
+  - id: composer--DisableTableCentering
+    title: Disable Table Centering
+    title.zh: 关闭表格居中
+    type: class-toggle
+  - id: pictures-setting
+    title: Pictures
+    title.zh: 图片
+    type: heading
+    level: 3
+    collapsed: true
+  - id: composer--DisableImageCentering
+    title: Disable Image Centering (Reading View)
+    title.zh: 关闭图片居中（阅读视图）
+    type: class-toggle
   - id: typograph-paragraph
     title: Paragraph
     title.zh: 段落
@@ -1915,10 +1929,15 @@ body .markdown-rendered mark {
 	padding: 2px 4px;
 }
 
-/* table */
-table,
-.table-wrapper {
+/* center tables */
+body:not(.composer--DisableTableCentering) :is(table, .table-wrapper) {
 	margin-inline: auto;
+}
+
+/* center images (Reading View only) */
+body:not(.composer--DisableImageCentering) .markdown-rendered img {
+	display: block;
+	margin-inline: auto !important;
 }
 
 .el-table table th,
