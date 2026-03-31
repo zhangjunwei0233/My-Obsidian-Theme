@@ -2007,13 +2007,17 @@ body:not(.composer--HideStripedTableBackground) {
 	--table-border-width: 0px;
 
 	.el-table table tbody tr:first-child > td,
-	.table-wrapper table tbody tr:first-child > td {
+	.table-wrapper table tbody tr:first-child > td,
+	.cm-html-embed tbody tr:first-child > td,
+	.markdown-rendered tbody tr:first-child > td {
 		border-color: var(--table-row-first-border-color);
 		border-top-width: var(--table-row-first-top-border-width);
 	}
 
 	.el-table table tbody tr:last-child > td,
-	.table-wrapper table tbody tr:last-child > td {
+	.table-wrapper table tbody tr:last-child > td,
+	.cm-html-embed tbody tr:last-child > td,
+	.markdown-rendered tbody tr:last-child > td {
 		border-color: var(--table-row-last-border-color);
 	}
 }
