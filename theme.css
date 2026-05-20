@@ -1843,12 +1843,21 @@ body:not(.composer--DisableHeadingLineEditingHighlight)
 /* inline-code */
 .cm-s-obsidian span.cm-inline-code {
 	color: var(--inline-code-normal);
-	background-color: var(--inline-code-background);
 }
 
-.markdown-rendered code {
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting) {
+	background-color: var(--inline-code-background);
+	border: 1px solid var(--inline-code-border);
+	border-radius: var(--inline-code-radius);
+	padding: var(--inline-code-padding);
+}
+
+.markdown-rendered :not(pre) > code {
 	color: var(--inline-code-normal);
 	background-color: var(--inline-code-background);
+	border: 1px solid var(--inline-code-border);
+	border-radius: var(--inline-code-radius);
+	padding: var(--inline-code-padding);
 }
 
 /* codeblock */
@@ -1905,6 +1914,155 @@ pre[class*="language-"] {
 	background-color: var(--codeblock-background);
 	caret-color: var(--codeblock-caret-color);
 	border-radius: var(--codeblock-border-radius);
+}
+
+/* Tokyo Night codeblock palette */
+.theme-light.theme-light {
+	--inline-code-normal: #205ea6;
+	--inline-code-background: hsla(0, 0%, 6%, 0.045);
+	--inline-code-border: hsla(0, 0%, 6%, 0.08);
+	--inline-code-padding: 0.08em 0.34em;
+	--inline-code-radius: 4px;
+	--code-background: hsl(0, 0%, 96%);
+	--codeblock-background: hsl(0, 0%, 96%);
+	--codeblock-caret-color: hsl(0, 0%, 6%);
+	--code-normal: hsl(0, 0%, 6%);
+	--code-comment: hsl(0, 0%, 71%);
+	--code-function: #6c99bb;
+	--code-important: #d5763f;
+	--code-keyword: #9e86c8;
+	--code-operator: #d04255;
+	--code-property: #73bbb2;
+	--code-punctuation: hsl(0, 0%, 46%);
+	--code-string: #a8c373;
+	--code-tag: #d04255;
+	--code-value: #9e86c8;
+	--code-class: #6c99bb;
+	--code-attribute: #b05279;
+	--code-selection: hsla(201, 50%, 76%, 0.3);
+	--code-flair: hsl(0, 0%, 46%);
+}
+
+.theme-dark.theme-dark {
+	--inline-code-normal: #7dcfff;
+	--inline-code-background: rgba(122, 162, 247, 0.12);
+	--inline-code-border: rgba(125, 207, 255, 0.14);
+	--inline-code-padding: 0.08em 0.34em;
+	--inline-code-radius: 4px;
+	--code-background: #1a1b26;
+	--codeblock-background: #1a1b26;
+	--codeblock-caret-color: #c0caf5;
+	--code-normal: #a9b1d6;
+	--code-comment: #51597d;
+	--code-function: #7aa2f7;
+	--code-important: #ff9e64;
+	--code-keyword: #bb9af7;
+	--code-operator: #89ddff;
+	--code-property: #7dcfff;
+	--code-punctuation: #9abdf5;
+	--code-string: #9ece6a;
+	--code-tag: #f7768e;
+	--code-value: #ff9e64;
+	--code-class: #0db9d7;
+	--code-attribute: #bb9af7;
+	--code-selection: #515c7e4d;
+	--code-flair: #787c99;
+}
+
+.markdown-source-view .HyperMD-codeblock,
+.markdown-rendered pre,
+.markdown-rendered pre code {
+	color: var(--code-normal);
+}
+
+.markdown-source-view.mod-cm6 .code-block-flair,
+.markdown-rendered button.copy-code-button {
+	color: var(--code-flair);
+}
+
+.cm-s-obsidian .HyperMD-codeblock ::selection,
+.markdown-rendered pre ::selection {
+	background-color: var(--code-selection);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-comment,
+.markdown-rendered pre .token.comment,
+.markdown-rendered pre .token.prolog,
+.markdown-rendered pre .token.doctype,
+.markdown-rendered pre .token.cdata {
+	color: var(--code-comment);
+	font-style: italic;
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-keyword,
+.cm-s-obsidian .HyperMD-codeblock .cm-atom,
+.cm-s-obsidian .HyperMD-codeblock .cm-builtin,
+.markdown-rendered pre .token.keyword,
+.markdown-rendered pre .token.atrule,
+.markdown-rendered pre .token.builtin {
+	color: var(--code-keyword);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-operator,
+.markdown-rendered pre .token.operator {
+	color: var(--code-operator);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-string,
+.cm-s-obsidian .HyperMD-codeblock .cm-string-2,
+.markdown-rendered pre .token.string,
+.markdown-rendered pre .token.char,
+.markdown-rendered pre .token.regex {
+	color: var(--code-string);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-number,
+.markdown-rendered pre .token.number,
+.markdown-rendered pre .token.boolean,
+.markdown-rendered pre .token.constant {
+	color: var(--code-value);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-def,
+.cm-s-obsidian .HyperMD-codeblock .cm-variable-2,
+.markdown-rendered pre .token.function,
+.markdown-rendered pre .token.function-name {
+	color: var(--code-function);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-property,
+.cm-s-obsidian .HyperMD-codeblock .cm-variable-3,
+.markdown-rendered pre .token.property,
+.markdown-rendered pre .token.selector {
+	color: var(--code-property);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-tag,
+.markdown-rendered pre .token.tag,
+.markdown-rendered pre .token.deleted {
+	color: var(--code-tag);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-attribute,
+.markdown-rendered pre .token.attr-name,
+.markdown-rendered pre .token.namespace {
+	color: var(--code-attribute);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-qualifier,
+.cm-s-obsidian .HyperMD-codeblock .cm-type,
+.markdown-rendered pre .token.class-name {
+	color: var(--code-class);
+}
+
+.cm-s-obsidian .HyperMD-codeblock .cm-meta,
+.markdown-rendered pre .token.punctuation {
+	color: var(--code-punctuation);
+}
+
+.markdown-rendered pre .token.important,
+.markdown-rendered pre .token.inserted {
+	color: var(--code-important);
 }
 
 /* highlight */
