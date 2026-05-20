@@ -2092,8 +2092,14 @@ body:not(.composer--DisableTableCentering) :is(table, .table-wrapper) {
 	margin-inline: auto;
 }
 
-/* center images (Reading View only) */
-body:not(.composer--DisableImageCentering) .markdown-rendered img {
+/* center images */
+body:not(.composer--DisableImageCentering)
+	:is(
+		.markdown-rendered img,
+		.markdown-source-view.mod-cm6 .internal-embed.image-embed,
+		.markdown-source-view.mod-cm6 .cm-preview-code-block img,
+		.markdown-source-view.mod-cm6 .image-embed img
+	) {
 	display: block;
 	margin-inline: auto !important;
 }
