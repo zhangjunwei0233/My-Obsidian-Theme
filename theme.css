@@ -1885,7 +1885,15 @@ body:not(.composer--DisableHeadingLineEditingHighlight)
 .HyperMD-codeblock.HyperMD-codeblock-begin.HyperMD-codeblock-begin-bg {
 	border-top-left-radius: var(--codeblock-border-radius);
 	border-top-right-radius: var(--codeblock-border-radius);
-	min-height: 32px;
+	min-height: 24px;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock-begin {
+	padding-top: 2px;
+}
+
+.markdown-source-view.mod-cm6 .code-block-flair {
+	padding-top: 4px;
 }
 
 .HyperMD-codeblock.HyperMD-codeblock-end.HyperMD-codeblock-end-bg {
